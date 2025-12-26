@@ -32,19 +32,5 @@ LDFLAGS="
 -lX11
 "
 
-build_debug() {
-    $CC $CFLAGS_COMMON $CFLAGS_DEBUG $SRC -o $OUT $LDFLAGS
-}
-
-build_release() {
-    $CC $CFLAGS_COMMON $CFLAGS_RELEASE $SRC -o $OUT $LDFLAGS
-}
-
-case "$1" in
-    debug)   build_debug ;;
-    release) build_release ;;
-    *)
-        echo "usage: $0 [debug|release]"
-        exit 1
-        ;;
-esac
+$CC $CFLAGS_COMMON $CFLAGS_DEBUG $SRC -o $OUT $LDFLAGS
+./app
